@@ -26,3 +26,9 @@ export interface IcarProps {
   transmission: string;
   year: number;
 }
+
+export interface ICardDetailsProps {
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  car: IcarProps;
+}

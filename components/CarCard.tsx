@@ -76,7 +76,7 @@ const CarCard = ({ car }: CarCardProps) => {
           />
         </div>
       </div>
-      <CardDeatails />
+      <CardDeatails isOpen={isOpen} setIsOpen={setIsOpen} car={car} />
     </div>
   );
 };
