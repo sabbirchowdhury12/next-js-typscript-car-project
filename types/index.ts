@@ -32,3 +32,10 @@ export interface ICardDetailsProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   car: IcarProps;
 }
+export interface IFilterProps {
+  manufacturer: string;
+  year: number;
+  fuel: string;
+  limit: number;
+  model: string;
+}

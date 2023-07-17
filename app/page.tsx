@@ -1,9 +1,20 @@
 import { CarCard, CustomFilter, Hero, SearchBar } from "@/components";
+import { IFilterProps } from "@/types";
 import { fetchCarsData } from "@/utils";
 import Image from "next/image";
 
-export default async function Home() {
-  const allCars = await fetchCarsData();
+interface IHomeProps {
+  searchParams: IFilterProps;
+}
+
+export default async function Home({ searchParams }: IHomeProps) {
+  const allCars = await fetchCarsData({
+    manufacturer: searchParams.manufacturer || "",
+    year: searchParams.year || 2022,
+    fuel: searchParams.fuel || "",
+    limit: searchParams.limit || 10,
+    model: searchParams.model || "",
+  });
 
   const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   return (
